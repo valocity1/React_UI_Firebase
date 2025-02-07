@@ -10,19 +10,8 @@ import {
   Alert,
 } from 'react-native';
 import React from 'react';
-import { StackNavigationProp } from '@react-navigation/stack';
 
-type RootStackParamList = {
-  Login: undefined;
-  ValidateOTP: { countryCode: string; phoneNumber: string };
-};
-// import LottieView from 'lottie-react-native';
-
-type LoginScreenProps = {
-  navigation: StackNavigationProp<RootStackParamList, 'Login'>;
-};
-
-const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
+const LetsStart = ({ route, navigation }) => {
   const [inputCountryCode, setCountryCode] = React.useState('');
   const [phoneNo, setPhoneNo] = React.useState('');
 
@@ -42,29 +31,17 @@ const Login: React.FC<LoginScreenProps> = ({ navigation }) => {
           style={styles.loginImage}
           source={require('../assets/images/4957136.jpg')}
         />
-        <Text style={styles.loginTxt}>Login / Signup</Text>
+        <Text style={styles.loginTxt}>You Are All Set!</Text>
         <Text style={styles.loremispum}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nostrum
+          Welcome to The Family.
+        </Text>
+        <Text style={styles.regText}>
+          Your registration has been verified successfully.
         </Text>
 
         <View style={{alignItems: 'flex-start'}}>
-          <Text style={styles.enterPhone}>Enter Phone No. *</Text>
+          <Text style={styles.swipeButton}>Swipe the button below to start working wih us.</Text>
           <View style={styles.phoneContainer}>
-            <TextInput
-              style={styles.inputCountryCode}
-              placeholder="+91"
-              maxLength={5}
-              keyboardType="numeric"
-              onChangeText={texts=> setCountryCode("+"+texts)}
-            />
-            <TextInput
-              style={styles.inputPhoneNo}
-              placeholder="1234567890"
-              value={phoneNo}
-              maxLength={10}
-              keyboardType="numeric"
-              onChangeText={text => setPhoneNo(text)}
-            />
           </View>
         </View>
         <TouchableOpacity
@@ -84,19 +61,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
-  loginImage: {width: 300, height: 300, marginTop: 50},
+  loginImage: {width: 270, height: 270, marginTop: 30},
   loremispum: {
-    fontSize: 15,
-    marginTop: 10,
+    fontSize: 21,
+    marginTop: 40,
     marginLeft: 20,
     marginRight: 20,
+    fontWeight:'bold',
     fontFamily: 'Lato-Regular',
     textAlign: 'center',
   },
-  enterPhone: {marginTop: 50},
+  regText:{
+    flex:1,
+    fontSize:18,
+    fontFamily: 'Lato-Regular',
+    marginStart:20,
+    marginEnd:20,
+    marginTop:40,
+    textAlign:'center',
+  },
+  swipeButton: {fontSize:15, textAlign:'center', marginStart:40, marginEnd:40},
   phoneContainer: {flexDirection: 'row'},
   loginTxt: {
-    fontSize: 20,
+    color:'blue',
+    fontSize: 24,
     fontWeight: 'bold',
     fontFamily: 'Lato-Regular',
     marginTop: 10,
@@ -119,13 +107,15 @@ const styles = StyleSheet.create({
   touchableTextButton: {color: 'white', fontSize: 19},
   submitButton: {
     backgroundColor: 'blue',
+    fontSize:15,
     borderRadius: 10,
     width: '90%',
     height: 50,
     justifyContent: 'center',
+    fontFamily:'Lato-Regular',
     alignItems: 'center',
-    marginTop: 50,
-    marginBottom:10,
+    marginTop: 10,
+    marginBottom:40,
   },
   aaa: {
     justifyContent: 'center',
@@ -134,4 +124,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default LetsStart;
